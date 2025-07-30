@@ -1,17 +1,23 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Star } from "lucide-react"
-import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Star } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectCardProps {
-  title: string
-  description: string
-  category: string
-  imageUrl: string
-  imageAlt: string
+  title: string;
+  description: string;
+  category: string;
+  imageUrl: string;
+  imageAlt: string;
 }
 
-export function ProjectCard({ title, description, category, imageUrl, imageAlt }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  description,
+  category,
+  imageUrl,
+  imageAlt,
+}: ProjectCardProps) {
   return (
     <Card className="bg-orange-950/20 border-orange-800/30 overflow-hidden group hover:border-orange-600/50 transition-all duration-300">
       <div className="aspect-video bg-gradient-to-br from-orange-900/40 to-black relative overflow-hidden">
@@ -27,7 +33,10 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt }
       <CardContent className="p-6">
         <div className="flex items-center gap-2 mb-2">
           <Star className="h-4 w-4 text-orange-400 fill-current" />
-          <Badge variant="secondary" className="bg-orange-900/50 text-orange-300">
+          <Badge
+            variant="secondary"
+            className="bg-orange-900/50 text-orange-300"
+          >
             {category}
           </Badge>
         </div>
@@ -35,5 +44,5 @@ export function ProjectCard({ title, description, category, imageUrl, imageAlt }
         <p className="text-orange-200 text-sm">{description}</p>
       </CardContent>
     </Card>
-  )
+  );
 }
