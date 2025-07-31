@@ -17,7 +17,7 @@ export function AboutSection() {
             <div>
               <h3 className="text-2xl font-semibold text-orange-300 mb-6">Our Philosophy</h3>
               <p className="text-orange-200 mb-6 leading-relaxed">
-                Like the ancient Enchiridion - a handbook of essential knowledge - we believe in distilling complex
+                Like the ancient Enchiridion - a handbook of knowledge - we believe in distilling complex
                 technical challenges into elegant, practical solutions. Our approach combines time-tested principles
                 with innovative technologies.
               </p>
