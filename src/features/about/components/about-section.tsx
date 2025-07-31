@@ -23,7 +23,7 @@ export function AboutSection() {
               </p>
               <p className="text-orange-200 mb-6 leading-relaxed">
                 Every project we undertake is treated as a sacred text, carefully crafted with attention to detail,
-                scalability, and user experience. We don't just write code; we architect digital experiences that stand
+                scalability, and user experience. We don&apos;t just write code; we architect digital experiences that stand
                 the test of time.
               </p>
               <div className="flex flex-wrap gap-3">
