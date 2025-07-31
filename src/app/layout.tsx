@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Enchiridion Technologies",
   description: "Innovative technology solutions for modern businesses",
   icons: {
-    icon: '/favicon.svg',
+    icon: '/scroll-image.png',
   },
 };
 

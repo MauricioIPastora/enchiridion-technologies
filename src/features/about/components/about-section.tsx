@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { BookOpen } from "lucide-react"
+import { ScrollText } from "lucide-react"
 
 export function AboutSection() {
   return (
@@ -34,7 +34,7 @@ export function AboutSection() {
             </div>
             <div className="relative">
               <div className="aspect-square bg-gradient-to-br from-orange-900/30 to-black rounded-lg flex items-center justify-center">
-                <BookOpen className="h-32 w-32 text-orange-500/60" />
+                <ScrollText className="h-32 w-32 text-orange-500/60" />
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent to-orange-600/10 rounded-lg" />
               </div>
             </div>
