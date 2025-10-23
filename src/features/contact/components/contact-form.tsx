@@ -1,62 +1,14 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
 
 export function ContactForm() {
-  const [pending, setPending] = useState(false)
-  const [message, setMessage] = useState("")
-
-  // TODO: Replace this URL with your actual API Gateway URL
-  const API_ENDPOINT =
-    ""; 
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setPending(true);
-    setMessage(""); // Clear any previous messages
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(API_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.get("name"),
-          email: formData.get("email"),
-          message: formData.get("message"),
-          projectType: formData.get("projectType"),
-        }),
-      });
-
-      console.log("Response status:", response.status);
-      console.log("Response ok:", response.ok);
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Response data:", data);
-        setMessage(data.message);
-        form.reset();
-      } else {
-        setMessage("Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      console.error("Fetch error:", error);
-      setMessage("Network error. Please check your connection and try again.");
-    } finally {
-      setPending(false);
-    }
-  }
 
   return (
     <Card className="bg-orange-950/20 border-orange-800/30">
       <CardHeader>
         <CardTitle className="text-orange-300">Start Your Project</CardTitle>
         <CardDescription className="text-orange-200">
-          Tell us about your vision and we'll help bring it to life.
+          Tell us about your vision and we&apos;ll help bring it to life.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">

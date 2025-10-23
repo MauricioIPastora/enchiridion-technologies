@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { BookOpen, Cog, Star, Mail, Phone } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 interface MobileNavigationProps {
   isOpen: boolean
@@ -58,7 +59,15 @@ export function MobileNavigation({ isOpen, onToggle, onClose }: MobileNavigation
           <div className="flex items-center justify-between p-6 border-b border-orange-800/30">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <BookOpen className="h-6 w-6 text-orange-500" />
+                <div className="w-6 h-6">
+                  <Image
+                    src="/scroll-image.png"
+                    alt="Enchiridion Logo"
+                    width={24}
+                    height={24}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
                 <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-orange-500 rounded-full opacity-60 animate-pulse" />
               </div>
               <span className="text-lg font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
@@ -140,3 +149,4 @@ export function MobileNavigation({ isOpen, onToggle, onClose }: MobileNavigation
     </>
   )
 }
+
