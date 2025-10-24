@@ -13,7 +13,7 @@ export function ProjectsSection() {
       <div className="container mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-orange-300">
-            Featured Grimoires
+            Featured Projects
           </h2>
           <p className="text-xl text-orange-200 max-w-2xl mx-auto">
             Explore our collection of digital masterpieces, each one a testament
