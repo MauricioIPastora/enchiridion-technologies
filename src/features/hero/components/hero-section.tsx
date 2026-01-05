@@ -73,13 +73,14 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-600 bg-clip-text text-transparent pb-4 cursor-pointer"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-600 bg-clip-text text-transparent pb-4 cursor-pointer relative group"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             onMouseEnter={() => setShowMatrix(true)}
             onMouseLeave={() => setShowMatrix(false)}
           >
+            <span className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></span>
             Enchiridion Technologies
           </motion.h1>
 
