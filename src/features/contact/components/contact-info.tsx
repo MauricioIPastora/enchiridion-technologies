@@ -1,8 +1,11 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+"use client"
+
+import { Mail, Phone, MapPin } from "lucide-react"
+import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export function ContactInfo() {
   return (
-    <div>
+    <GlassmorphicCard>
       <h3 className="text-2xl font-semibold text-orange-300 mb-6">
         Get in Touch
       </h3>
@@ -37,6 +40,6 @@ export function ContactInfo() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </GlassmorphicCard>
+  )
 }

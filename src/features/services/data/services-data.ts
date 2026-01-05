@@ -11,7 +11,7 @@ export const servicesData = [
     icon: BrainCircuit,
     title: "AI/MCP Integration",
     description:
-      "Transform complex data into clear insights with our sophisticated dashboard solutions and comprehensive reporting systems.",
+      "Integrate AI into your existing applications to automate workflows, and build custom MCP tools that connect your AI services to your data and systems.",
   },
   {
     icon: Code,

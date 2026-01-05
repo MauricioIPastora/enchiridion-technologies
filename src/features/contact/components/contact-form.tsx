@@ -1,17 +1,17 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
+"use client"
+
 import { Button } from "@/components/ui/button"
+import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export function ContactForm() {
 
   return (
-    <Card className="bg-orange-950/20 border-orange-800/30">
-      <CardHeader>
-        <CardTitle className="text-orange-300">Start Your Project</CardTitle>
-        <CardDescription className="text-orange-200">
-          Tell us about your vision and we&apos;ll help bring it to life.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-4">
+    <GlassmorphicCard>
+      <h3 className="text-2xl font-semibold text-orange-300 mb-2">Start Your Project</h3>
+      <p className="text-orange-200 mb-6">
+        Tell us about your vision and we&apos;ll help bring it to life.
+      </p>
+      <div className="space-y-4">
         <div>
           <label className="text-sm font-medium text-orange-300 mb-2 block">Name</label>
           <input
@@ -45,8 +45,8 @@ export function ContactForm() {
             placeholder="Tell us about your project..."
           />
         </div>
-        <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">Send Message</Button>
-      </CardContent>
-    </Card>
+        <Button className="w-full bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-600 border-0 text-white">Send Message</Button>
+      </div>
+    </GlassmorphicCard>
   )
 }
