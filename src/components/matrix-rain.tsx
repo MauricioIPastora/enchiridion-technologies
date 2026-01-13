@@ -9,6 +9,7 @@ interface MatrixRainProps {
   color?: string;
   characters?: string;
   speed?: number; // Lower = slower (0.1 to 1.0 recommended)
+  opacity?: number; // 0 to 1 for controlling visibility
 }
 
 export default function MatrixRain({
@@ -17,6 +18,7 @@ export default function MatrixRain({
   color,
   characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:',.<>?/~`",
   speed = 0.5, // Default slower speed
+  opacity = 1,
 }: MatrixRainProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { resolvedTheme } = useTheme();
@@ -121,6 +123,7 @@ export default function MatrixRain({
     <canvas
       ref={canvasRef}
       className={`absolute inset-0 h-full w-full pointer-events-none ${className}`}
+      style={{ opacity, transition: "opacity 0.15s ease-out" }}
     />
   );
 }

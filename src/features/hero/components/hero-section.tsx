@@ -5,18 +5,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import MatrixRain from "@/components/matrix-rain";
 
 export function HeroSection() {
-  const [showMatrix, setShowMatrix] = useState(false);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {showMatrix && (
-        <MatrixRain className="z-0" fontSize={16} color="#fb923c" speed={0.6} />
-      )}
-
       {/* Animated blob backgrounds */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -49,8 +41,6 @@ export function HeroSection() {
           >
             <motion.div
               className="relative group cursor-pointer"
-              onHoverStart={() => setShowMatrix(true)}
-              onHoverEnd={() => setShowMatrix(false)}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
@@ -73,12 +63,10 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-600 bg-clip-text text-transparent pb-4 cursor-pointer relative group"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-600 bg-clip-text text-transparent pb-4 relative group"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            onMouseEnter={() => setShowMatrix(true)}
-            onMouseLeave={() => setShowMatrix(false)}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></span>
             Enchiridion Technologies
