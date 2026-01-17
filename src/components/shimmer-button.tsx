@@ -1,3 +1,5 @@
+"use client"
+
 import React, { type CSSProperties, type ComponentPropsWithoutRef } from "react"
 
 import { cn } from "@/lib/utils"
@@ -59,7 +61,7 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
         {/* Highlight */}
         <div
           className={cn(
-            "insert-0 absolute size-full",
+            "inset-0 absolute size-full",
 
             "rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ffffff1f]",
 
@@ -82,3 +84,4 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
 )
 
 ShimmerButton.displayName = "ShimmerButton"
+
