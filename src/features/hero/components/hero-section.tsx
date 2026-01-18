@@ -2,107 +2,98 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Cloud, Brain, Code } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+const services = [
+  { icon: Cloud, label: "Cloud Infrastructure" },
+  { icon: Brain, label: "AI Development" },
+  { icon: Code, label: "Web Development" },
+];
+
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated blob backgrounds */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Background logo with overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-orange-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image
+            src="/scroll-hd.png"
+            alt=""
+            width={800}
+            height={800}
+            className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[900px] lg:h-[900px] object-contain opacity-[0.08]"
+            priority
+          />
+        </div>
+        {/* Dark overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
+        {/* Warm orange glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-orange-600/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 lg:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-block mb-6">
-              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-orange-500/10 backdrop-blur-sm border border-orange-500/20">
-                <span className="relative z-10 text-orange-300">
-                  Ancient Knowledge, Modern Solutions
-                </span>
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/20 to-orange-600/20 animate-pulse"></span>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="mb-8 flex justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <motion.div
-              className="relative group cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-              <motion.div
-                className="relative"
-                whileHover={{ rotate: [0, -5, 5, -5, 0] }}
-                transition={{ duration: 0.5 }}
-              >
-                <Image
-                  src="/scroll-hd.png"
-                  alt="Enchiridion Technologies Scroll Logo"
-                  width={200}
-                  height={200}
-                  className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 drop-shadow-2xl group-hover:drop-shadow-[0_0_30px_rgba(251,146,60,0.6)] transition-all duration-300"
-                  priority
-                />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
+          {/* Company Name */}
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-600 bg-clip-text text-transparent pb-4 relative group"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500 bg-clip-text text-transparent tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></span>
             Enchiridion Technologies
           </motion.h1>
 
+          {/* Tagline */}
           <motion.p
-            className="text-xl md:text-2xl text-orange-200 mb-8 leading-relaxed relative z-10"
+            className="text-lg md:text-xl text-orange-200/80 mb-10 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Specializing in AI products, Web development, and custom software
-            solutions, <br /> we craft digital experiences with the precision of
-            ancient scribes and the innovation of modern technology.
+            A software studio building modern infrastructure and intelligent applications.
           </motion.p>
 
+          {/* Service Pills */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-3 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            {services.map((service, index) => (
+              <motion.div
+                key={service.label}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-orange-950/40 border border-orange-800/30 text-orange-200"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+              >
+                <service.icon className="w-4 h-4 text-orange-400" />
+                <span className="text-sm font-medium">{service.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Button
-              size="lg"
-              className="relative overflow-hidden group bg-gradient-to-r from-orange-600 to-orange-700 border-0 text-white px-8"
-            >
-              <Link href="#contact" className="flex items-center relative z-10">
-                Begin Your Journey{" "}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Button className="group relative bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base md:text-xs lg:text-lg font-semibold flex items-center gap-2 backdrop-blur-sm border border-orange-400/30 shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5">
+              <Link href="#contact" className="flex items-center">
+                Start a Project
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <span className="absolute inset-0 bg-gradient-to-r from-orange-700 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-orange-600 text-orange-400 hover:bg-orange-600 hover:text-white bg-transparent"
+              className="border-orange-700/50 text-orange-300 hover:bg-orange-950/50 hover:text-orange-200 bg-transparent"
+              asChild
             >
               <Link href="#projects">View Our Work</Link>
             </Button>
@@ -110,16 +101,22 @@ export function HeroSection() {
         </div>
       </div>
 
+      {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
-        <div className="w-6 h-10 rounded-full border-2 border-orange-500/20 flex justify-center items-start p-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-orange-500/60 animate-pulse"></div>
+        <div className="w-6 h-10 rounded-full border-2 border-orange-700/40 flex justify-center items-start p-1">
+          <motion.div
+            className="w-1.5 h-1.5 rounded-full bg-orange-500"
+            animate={{ y: [0, 16, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
       </motion.div>
     </section>
   );
 }
+
