@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Cloud, Brain, Code } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ShimmerButton } from "@/components/shimmer-button";
 
 const services = [
   { icon: Cloud, label: "Cloud Infrastructure" },
@@ -89,14 +90,9 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-orange-700/50 text-orange-300 hover:bg-orange-950/50 hover:text-orange-200 bg-transparent"
-              asChild
-            >
+            <ShimmerButton className="hidden md:flex bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-xl text-sm lg:text-base font-medium shadow-lg">
               <Link href="#projects">View Our Work</Link>
-            </Button>
+            </ShimmerButton>
           </motion.div>
         </div>
       </div>
