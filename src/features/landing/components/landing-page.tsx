@@ -9,7 +9,7 @@ import { AboutSection } from "@/features/about/components/about-section";
 import { ContactSection } from "@/features/contact/components/contact-section";
 import { Footer } from "@/features/footer/components/footer";
 import { ScrollProgress } from "@/components/scroll-progress";
-import { MouseFollower } from "@/components/mouse-follower";
+// import { MouseFollower } from "@/components/mouse-follower";
 import MatrixRain from "@/components/matrix-rain";
 
 export function LandingPage() {
@@ -61,7 +61,7 @@ export function LandingPage() {
           opacity={matrixOpacity}
         />
       )}
-      <MouseFollower />
+      {/* <MouseFollower /> */}
       <ScrollProgress />
       <Header />
       <HeroSection />
