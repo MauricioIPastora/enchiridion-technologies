@@ -12,7 +12,7 @@ const services = [
   { icon: Code, label: "Web Development" },
 ]
 
-export default function HeroSection() {
+export default function HomePage() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Background logo with overlay */}
@@ -33,12 +33,7 @@ export default function HeroSection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-orange-600/10 rounded-full blur-3xl" />
         
         {/* Noise texture overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.15] pointer-events-none mix-blend-overlay"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
+        <div className="noise-overlay" />
       </div>
 
       {/* Animated SVG threads overlay */}
@@ -342,4 +337,5 @@ export default function HeroSection() {
     </section>
   )
 }
+
 
