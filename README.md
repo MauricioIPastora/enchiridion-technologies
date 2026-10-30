@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Enchiridion Technologies — website
 
-## Getting Started
+Marketing site for Enchiridion Technologies: a software studio focused on AI application
+development and integration, full-stack web development, and cloud infrastructure.
 
-First, run the development server:
+Built with Next.js 15 (App Router, static export), Tailwind CSS v4, GSAP (ScrollTrigger +
+SplitText), Lenis smooth scrolling, and three.js / React Three Fiber.
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run lint
+npm run build    # static export to ./out (deployed to S3 + CloudFront by GitHub Actions)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` to the production origin so Open Graph image URLs resolve correctly.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Path | What |
+| --- | --- |
+| `src/content/site.ts` | All copy, links, nav items, contact form options, and the `works` list (cover image, hover video/image, link, role, services, tools) |
+| `src/app/globals.css` | Design tokens (brand palette, breakpoints, spacing), typography utilities (`heading-*`, `body-*`) |
+| `src/components/providers/` | App shell: Lenis, fonts, the global `js-s-*` scroll-text animations |
+| `src/components/gl/` | WebGL: blob gradient + starfield + pointer trail (`background-scene.tsx`), logo particle cloud sampled from `public/scroll-hd.png` (`particle-field.ts`, `shape-sampling.ts`), scroll-driven morph / spin / dissolve (`particle-scroll-controller.tsx`), featured-work image planes (`rig-canvas.tsx`) |
+| `src/components/gl/particle-config.ts` | Tunables for particle size, colour gain, spin, morph and the background gradient |
+| `src/features/home/` | Home page sections (hero, resume, featured projects, services, process, get in touch, footer) |
+| `src/features/work/` | `/work` showcase: WebGL carousel (`work-carousel.tsx`) with cover→video displacement transitions, barrel scroll, wrap-around and snapping; details panel + rolling counter (`work-page.tsx`) |
+| `src/features/about/` | About page |
+| `src/components/` | Navbar + viewport frame, custom cursor, preloader, contact drawer, UI primitives |
 
-## Learn More
+### Scroll animation hooks
 
-To learn more about Next.js, take a look at the following resources:
+Add these classes to any element and the provider wires the GSAP ScrollTrigger for you:
+`js-s-print-opacity` (per-character print-in, `data-start-from-zero`), `js-s-lines` (masked
+line slide-in), `js-s-fade-in`, `js-s-fade-out`, `js-s-fade-in-out`. Fine-tune with
+`data-start`, `data-end`, `data-scrub`, `data-delay`, `data-scale`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sections drive the particle cloud with `data-geometry="logo|diamond"`, `data-geometry-scale`,
+`data-geometry-position`, and `data-dissolve="in|out"` (+ `data-dissolve-start/end`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Adding a project
 
-## Deploy on Vercel
+Append an entry to `works` in `src/content/site.ts`. Covers should be 1.6:1 (e.g. 1600×1000) in
+`public/covers/`; hover media is an MP4 in `public/videos/` (`hoverType: "video"`) or a second image
+(`hoverType: "image"`). The first three entries appear on the home page; all entries appear in `/work`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Contact form
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The site is static, so the contact drawer composes a prefilled `mailto:` message. Swap the
+submit handler in `src/components/contact-drawer.tsx` for an API call when a backend exists.
